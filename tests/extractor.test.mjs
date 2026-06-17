@@ -284,19 +284,19 @@ test("extracts Claude current user prompts and response containers", async () =>
       <title>Paper content summary - Claude</title>
       <main>
         <div data-testid="user-message" class="font-large !font-user-message">
-          <p>这个paper讲了什么？</p>
+          <p>Summarize this sample document.</p>
         </div>
         <div data-is-streaming="false" class="group relative pb-3">
           <div class="font-claude-response">
-            <p class="font-claude-response-body">这篇论文提出了 CP-WOPT 方法。</p>
+            <p class="font-claude-response-body">This sample answer explains the document's main idea.</p>
           </div>
         </div>
         <div data-testid="user-message" class="font-large !font-user-message">
-          <p>它的目的是要分解带缺失值的tensor吗？</p>
+          <p>What is the second key point?</p>
         </div>
         <div data-is-streaming="false" class="group relative pb-3">
           <div class="font-claude-response">
-            <p class="font-claude-response-body">是的，核心是对带缺失值的张量进行加权分解。</p>
+            <p class="font-claude-response-body">The second sample answer gives a short clarification.</p>
           </div>
         </div>
       </main>
@@ -305,7 +305,7 @@ test("extracts Claude current user prompts and response containers", async () =>
 
   assert.equal(summary.ok, true);
   assert.equal(summary.conversation.turns.length, 2);
-  assert.equal(summary.conversation.turns[0].preview, "这个paper讲了什么？");
+  assert.equal(summary.conversation.turns[0].preview, "Summarize this sample document.");
   assert.deepEqual(
     JSON.parse(JSON.stringify(summary.conversation.turns[1].messageIds)),
     ["claude-3-user", "claude-4-assistant"]
@@ -320,19 +320,19 @@ test("extracts Claude current user prompts and response containers", async () =>
       <title>Paper content summary - Claude</title>
       <main>
         <div data-testid="user-message" class="font-large !font-user-message">
-          <p>这个paper讲了什么？</p>
+          <p>Summarize this sample document.</p>
         </div>
         <div data-is-streaming="false" class="group relative pb-3">
           <div class="font-claude-response">
-            <p class="font-claude-response-body">这篇论文提出了 CP-WOPT 方法。</p>
+            <p class="font-claude-response-body">This sample answer explains the document's main idea.</p>
           </div>
         </div>
         <div data-testid="user-message" class="font-large !font-user-message">
-          <p>它的目的是要分解带缺失值的tensor吗？</p>
+          <p>What is the second key point?</p>
         </div>
         <div data-is-streaming="false" class="group relative pb-3">
           <div class="font-claude-response">
-            <p class="font-claude-response-body">是的，核心是对带缺失值的张量进行加权分解。</p>
+            <p class="font-claude-response-body">The second sample answer gives a short clarification.</p>
           </div>
         </div>
       </main>
@@ -340,9 +340,9 @@ test("extracts Claude current user prompts and response containers", async () =>
   });
 
   assert.equal(exported.ok, true);
-  assert.doesNotMatch(exported.markdown, /这个paper讲了什么|CP-WOPT/);
-  assert.match(exported.markdown, /它的目的是要分解带缺失值的tensor吗/);
-  assert.match(exported.markdown, /加权分解/);
+  assert.doesNotMatch(exported.markdown, /Summarize this sample document|main idea/);
+  assert.match(exported.markdown, /What is the second key point/);
+  assert.match(exported.markdown, /short clarification/);
 });
 
 test("exports Gemini messages", async () => {
