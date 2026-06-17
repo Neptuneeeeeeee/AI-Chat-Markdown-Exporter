@@ -20,31 +20,15 @@ The settings panel includes extension-specific download settings, plus toggles f
 
 ## 使用说明
 
-1. 运行 `npm run build` 生成扩展文件。
-2. 打开 Chrome 的 `chrome://extensions` 页面。
-3. 开启右上角的开发者模式。
-4. 点击加载已解压的扩展程序，选择本项目的 `dist/` 文件夹。
-5. 打开 ChatGPT、Claude 或 Gemini 中需要导出的对话页面。
-6. 点击浏览器工具栏里的 AI Chat Markdown Exporter 图标。
-7. 在弹窗中勾选需要导出的用户提问。每个勾选项都会导出该提问以及它对应的 AI 回答。
-8. 如需调整导出内容，展开导出设置，可以选择下载文件夹，并开启或关闭时间戳、思考过程、网页搜索来源、Deep Research 引用、元信息和官方链接。
-9. 点击导出 Markdown，扩展会将选中的对话保存为 `.md` 文件。
+安装扩展后，在支持的 AI 对话页面打开插件弹窗，选择想保存的提问并导出 Markdown。每个选中的提问会和它对应的 AI 回答一起保存。
 
-如果当前 Chrome 环境不支持直接选择下载文件夹，扩展会自动退回到 Chrome 自带的下载或保存对话框。
+导出设置可以按需展开调整；如果当前浏览器不支持直接选择下载文件夹，扩展会使用 Chrome 自带下载流程。
 
 ## Usage
 
-1. Run `npm run build` to generate the extension files.
-2. Open Chrome at `chrome://extensions`.
-3. Enable Developer mode in the top-right corner.
-4. Click Load unpacked and select this project's `dist/` folder.
-5. Open the ChatGPT, Claude, or Gemini conversation you want to export.
-6. Click the AI Chat Markdown Exporter icon in the browser toolbar.
-7. Select the user prompts you want to export in the popup. Each selected item exports that prompt and its matching AI answer.
-8. To customize the export, open Export Settings. You can choose a download folder and toggle timestamps, thought-process summaries, web-search sources, Deep Research references, metadata, and official links.
-9. Click Export Markdown. The extension saves the selected conversation content as a `.md` file.
+After installing the extension, open the popup on a supported AI chat page, choose the prompts you want to keep, and export them as Markdown. Each selected prompt is saved with its matching AI answer.
 
-If the current Chrome environment does not support direct folder selection, the extension automatically falls back to Chrome's built-in download or save dialog.
+Export settings are optional; if direct folder selection is unavailable, the extension uses Chrome's built-in download flow.
 
 ## Development
 
