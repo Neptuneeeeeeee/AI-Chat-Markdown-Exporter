@@ -8,6 +8,10 @@ The popup shows each user prompt as a checkbox item. Selecting a prompt exports 
 
 The settings panel includes extension-specific download settings, plus toggles for message timestamps, visible thought-process summaries, web-search sources, and Deep Research references. The download folder button uses Chrome's system directory picker when available and falls back to Chrome's download/save dialog when the browser does not support direct folder access.
 
+## Preview
+
+![AI Chat Markdown Exporter popup preview](docs/images/popup-preview.png)
+
 ## Supported Sites
 
 - ChatGPT: `chatgpt.com`, `chat.openai.com`
