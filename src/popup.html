@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./popup.css">
+    <title>AI Chat Markdown Exporter</title>
+  </head>
+  <body>
+    <main class="popup">
+      <header class="header">
+        <div class="mark" aria-hidden="true">MD</div>
+        <div class="header-copy">
+          <h1>AI Chat Markdown Exporter</h1>
+          <p id="siteLabel">检测当前页面...</p>
+        </div>
+      </header>
+
+      <section class="summary" aria-label="conversation summary">
+        <strong id="conversationTitle">当前对话</strong>
+        <span id="selectionCount">0 / 0 已选</span>
+      </section>
+
+      <section class="quick-actions" aria-label="turn selection actions">
+        <button class="secondary" type="button" data-select="all">全选</button>
+        <button class="secondary" type="button" data-select="none">清空</button>
+      </section>
+
+      <section class="message-panel" aria-label="conversation turns">
+        <div id="messageList" class="message-list" aria-live="polite"></div>
+      </section>
+
+      <details class="settings">
+        <summary>导出设置</summary>
+        <div class="settings-body">
+          <div class="folder-field">
+            <span>下载文件夹</span>
+            <div class="folder-row">
+              <span id="downloadFolderName">未选择，使用 Chrome 默认下载目录</span>
+              <button id="chooseDownloadFolder" class="secondary" type="button">选择文件夹</button>
+            </div>
+          </div>
+
+          <label class="check">
+            <input id="askWhereToSave" type="checkbox">
+            <span>每次询问保存位置</span>
+          </label>
+
+          <label class="check">
+            <input id="includeMessageTimestamps" type="checkbox" checked>
+            <span>消息时间戳 <span class="pill">new</span></span>
+          </label>
+
+          <label class="check">
+            <input id="includeThoughtProcess" type="checkbox" checked>
+            <span>思考过程 <span class="pill">new</span></span>
+          </label>
+
+          <label class="check">
+            <input id="includeWebSearchSources" type="checkbox" checked>
+            <span>网页搜索来源 <span class="pill">new</span></span>
+          </label>
+
+          <label class="check">
+            <input id="includeDeepResearchReferences" type="checkbox" checked>
+            <span>Deep Research 引用 <span class="pill">new</span></span>
+          </label>
+
+          <label class="check">
+            <input id="includeMeta" type="checkbox" checked>
+            <span>包含来源信息</span>
+          </label>
+
+          <label class="check">
+            <input id="includeShareLink" type="checkbox" checked>
+            <span>底部附加官方链接</span>
+          </label>
+
+          <label class="field">
+            <span>官方分享链接</span>
+            <input id="shareUrl" type="url" inputmode="url" placeholder="可选：粘贴官方分享链接">
+          </label>
+        </div>
+      </details>
+
+      <button id="exportButton" type="button">导出已选 Markdown</button>
+      <p id="status" role="status"></p>
+    </main>
+
+    <script src="./popup.js"></script>
+  </body>
+</html>
